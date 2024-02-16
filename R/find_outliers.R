@@ -15,6 +15,12 @@ find_outliers <- function(x, col, group_col = NULL) {
   stopifnot(is.character(col))
   stopifnot(is.null(group_col) || is.character(group_col))
 
+  # check that group_col is a column in x
+  if (!is.null(group_col)) {
+    match.arg(arg = group_col, choices = names(x))
+  }
+
+
   return(x)
 }
 
