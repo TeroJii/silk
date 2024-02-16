@@ -34,6 +34,7 @@ find_outliers <- function(x, col, group_col = NULL) {
   } else {
     # do something else if there is no grouping column
     # medians <- ...
+    stop("Error: not implemented yet")
   }
 
 
