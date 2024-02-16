@@ -23,6 +23,14 @@ find_outliers <- function(x, col, group_col = NULL) {
   # record the median and mad for each group
   if(!is.null(group_col)){
     medians <- record_median(x, col, group_col)
+
+    # add outliers to the data
+    x <- x |>
+      dplyr::left_join(medians, by = group_col) |>
+      dplyr::mutate(
+        .outlier = abs(.data[[col]] - .median) > .median + 3 * .mad
+      )
+
   } else {
     # do something else if there is no grouping column
     # medians <- ...
@@ -44,8 +52,8 @@ record_median <- function(x, col, group_col){
   medians <- x |>
     dplyr::group_by(.data[[group_var]]) |>
     dplyr::summarise(
-      median_speed = stats::median(.data[[col]], na.rm = TRUE),
-      mad = stats::mad(.data[[col]], na.rm = TRUE)
+      .median = stats::median(.data[[col]], na.rm = TRUE),
+      .mad = stats::mad(.data[[col]], na.rm = TRUE)
     ) |>
     dplyr::ungroup()
 
@@ -54,4 +62,4 @@ record_median <- function(x, col, group_col){
 
 
 # suppress undefined global functions or variables during R CMD check
-.data <- group_var <- NULL
+.data <- group_var <- .mad <- .median <-  NULL
