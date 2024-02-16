@@ -4,10 +4,10 @@
 \alias{find_outliers}
 \title{Find outliers in a dataset}
 \usage{
-find_outliers(dat, col)
+find_outliers(x, col)
 }
 \arguments{
-\item{dat}{A data.frame with the data}
+\item{x}{A data.frame with the data}
 
 \item{col}{The column to find outliers from}
 }
