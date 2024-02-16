@@ -50,7 +50,7 @@ record_median <- function(x, col, group_col){
   stopifnot(is.character(group_col))
 
   medians <- x |>
-    dplyr::group_by(.data[[group_var]]) |>
+    dplyr::group_by(.data[[group_col]]) |>
     dplyr::summarise(
       .median = stats::median(.data[[col]], na.rm = TRUE),
       .mad = stats::mad(.data[[col]], na.rm = TRUE)
