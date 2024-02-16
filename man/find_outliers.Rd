@@ -4,12 +4,14 @@
 \alias{find_outliers}
 \title{Find outliers in a dataset}
 \usage{
-find_outliers(x, col)
+find_outliers(x, col, group_col = NULL)
 }
 \arguments{
 \item{x}{A data.frame with the data}
 
 \item{col}{The column to find outliers from}
+
+\item{group_col}{The column to group by}
 }
 \value{
 A data.frame with something
