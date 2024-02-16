@@ -53,6 +53,8 @@ record_median <- function(x, col, group_col){
   medians <- x |>
     dplyr::group_by(.data[[group_col]]) |>
     dplyr::summarise(
+      ## Perhaps we could also use
+      ## ".median_{col}" := stats::median(.data[[col]], na.rm = TRUE)
       .median = stats::median(.data[[col]], na.rm = TRUE),
       .mad = stats::mad(.data[[col]], na.rm = TRUE)
     ) |>
