@@ -20,6 +20,14 @@ find_outliers <- function(x, col, group_col = NULL) {
     match.arg(arg = group_col, choices = names(x))
   }
 
+  # record the median and mad for each group
+  if(!is.null(group_col)){
+    medians <- record_median(x, col, group_col)
+  } else {
+    # do something else if there is no grouping column
+    # medians <- ...
+  }
+
 
   return(x)
 }
