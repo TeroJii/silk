@@ -14,11 +14,16 @@ find_outliers(x, col, group_col = NULL)
 \item{group_col}{The column to group by}
 }
 \value{
-A data.frame with something
+A modified version of th input data.frame, which includes columns for
+median, MAD and a logical column to indicate outliers.
 }
 \description{
-Find outliers in a dataset
+A function for finding outliers in a dataset. Uses Median Absolute Deviation
+(MAD) to detect values which are a certain distance away from the median
+value.
 }
 \examples{
- # Examples here
+silk_data1 |>
+  find_outliers("time", group_col = "group") |>
+  head()
 }
