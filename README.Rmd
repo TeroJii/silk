@@ -55,11 +55,10 @@ If we visualize the data, we see that there are a few unusual values in the data
 library(ggplot2)
 
 silk_data1 |> 
-  ggplot2::ggplot(ggplot2::aes(x = time, y = y, color = group)) +
+  ggplot2::ggplot(ggplot2::aes(x = time, y = y)) +
   ggplot2::geom_line() +
   ggplot2::theme_bw() +
-  ggplot2::facet_wrap(~group) +
-  ggplot2::theme(legend.position = "top")
+  ggplot2::facet_wrap(~group)
 ```
 
 We can detect these unsual data points usign the `silk::find_outliers()` function, which takes a data.frame and a column name as input, and returns a modified version of the input data.frame.

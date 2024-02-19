@@ -55,11 +55,10 @@ the data.
 library(ggplot2)
 
 silk_data1 |> 
-  ggplot2::ggplot(ggplot2::aes(x = time, y = y, color = group)) +
+  ggplot2::ggplot(ggplot2::aes(x = time, y = y)) +
   ggplot2::geom_line() +
   ggplot2::theme_bw() +
-  ggplot2::facet_wrap(~group) +
-  ggplot2::theme(legend.position = "top")
+  ggplot2::facet_wrap(~group)
 ```
 
 <img src="man/figures/README-visualize-example-data-1.png" width="100%" />
