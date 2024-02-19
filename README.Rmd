@@ -51,14 +51,15 @@ silk_data1 |>
 
 If we visualize the data, we see that there are a few unusual values in the data.
 
-```{r visualize-example-data, fig.width = 4, fig.height = 2}
+```{r visualize-example-data, fig.width = 6, fig.height = 3}
 library(ggplot2)
 
 silk_data1 |> 
   ggplot2::ggplot(ggplot2::aes(x = time, y = y, color = group)) +
   ggplot2::geom_line() +
   ggplot2::theme_bw() +
-  ggplot2::facet_wrap(~group)
+  ggplot2::facet_wrap(~group) +
+  ggplot2::theme(legend.position = "top")
 ```
 
 We can detect these unsual data points usign the `silk::find_outliers()` function, which takes a data.frame and a column name as input, and returns a modified version of the input data.frame.
@@ -74,7 +75,7 @@ As we can see, the function has added new columns to the data. The  `.outlier` c
 
 ### Visulizing the outliers
 
-```{r visualize-outliers, fig.width = 4, fig.height = 2}
+```{r visualize-outliers, fig.width = 6, fig.height = 3}
 
 silk_data1 |> 
   silk::find_outliers(col = "y", group_col = "group") |>
@@ -82,7 +83,8 @@ silk_data1 |>
   ggplot2::geom_line() +
   ggplot2::geom_point(ggplot2::aes(color = .outlier)) +
   ggplot2::theme_bw() +
-  ggplot2::facet_wrap(~group)
+  ggplot2::facet_wrap(~group) +
+  ggplot2::theme(legend.position = "top")
 ```
 
 

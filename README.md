@@ -58,7 +58,8 @@ silk_data1 |>
   ggplot2::ggplot(ggplot2::aes(x = time, y = y, color = group)) +
   ggplot2::geom_line() +
   ggplot2::theme_bw() +
-  ggplot2::facet_wrap(~group)
+  ggplot2::facet_wrap(~group) +
+  ggplot2::theme(legend.position = "top")
 ```
 
 <img src="man/figures/README-visualize-example-data-1.png" width="100%" />
@@ -93,7 +94,8 @@ silk_data1 |>
   ggplot2::geom_line() +
   ggplot2::geom_point(ggplot2::aes(color = .outlier)) +
   ggplot2::theme_bw() +
-  ggplot2::facet_wrap(~group)
+  ggplot2::facet_wrap(~group) +
+  ggplot2::theme(legend.position = "top")
 ```
 
 <img src="man/figures/README-visualize-outliers-1.png" width="100%" />
