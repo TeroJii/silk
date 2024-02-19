@@ -15,3 +15,8 @@ correct_outliers <- function(x, col){
     )
     )
 }
+
+
+# suppress undefined global functions or variables during R CMD check
+.outlier <- NULL
+utils::globalVariables(':=')
