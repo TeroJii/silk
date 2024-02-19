@@ -25,7 +25,7 @@ correct_outliers <- function(x, col){
   }
 
   x |>
-    dplyr::mutate("{{col}}" := dplyr::if_else(
+    dplyr::mutate({{col}} := dplyr::if_else(
       .outlier,
       true = (dplyr::lag(.data[[col]]) + dplyr::lead(.data[[col]]))/2,
       false = .data[[col]]
