@@ -51,7 +51,7 @@ silk_data1 |>
 
 If we visualize the data, we see that there are a few unusual values in the data.
 
-```{r visualize-example-data, fig.width = 8, fig.height = 4}
+```{r visualize-example-data, fig.width = 4, fig.height = 2}
 library(ggplot2)
 
 silk_data1 |> 
@@ -71,6 +71,20 @@ silk_data1 |>
 ```
 
 As we can see, the function has added new columns to the data. The  `.outlier` column indicates whether a value is an outlier or not.
+
+### Visulizing the outliers
+
+```{r visualize-outliers, fig.width = 4, fig.height = 2}
+
+silk_data1 |> 
+  silk::find_outliers(col = "y", group_col = "group") |>
+  ggplot2::ggplot(ggplot2::aes(x = time, y = y)) +
+  ggplot2::geom_line() +
+  ggplot2::geom_point(ggplot2::aes(color = .outlier)) +
+  ggplot2::theme_bw() +
+  ggplot2::facet_wrap(~group)
+```
+
 
 <!--
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.

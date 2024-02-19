@@ -83,6 +83,21 @@ silk_data1 |>
 As we can see, the function has added new columns to the data. The
 `.outlier` column indicates whether a value is an outlier or not.
 
+### Visulizing the outliers
+
+``` r
+
+silk_data1 |> 
+  silk::find_outliers(col = "y", group_col = "group") |>
+  ggplot2::ggplot(ggplot2::aes(x = time, y = y)) +
+  ggplot2::geom_line() +
+  ggplot2::geom_point(ggplot2::aes(color = .outlier)) +
+  ggplot2::theme_bw() +
+  ggplot2::facet_wrap(~group)
+```
+
+<img src="man/figures/README-visualize-outliers-1.png" width="100%" />
+
 <!--
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
 &#10;You can also embed plots, for example:
