@@ -1,6 +1,7 @@
 correct_outliers <- function(x, col){
 
   stopifnot(is.data.frame(x))
+  stopifnot(is.character(col))
 
   if(!any(names(x) %in% ".outlier")){
     stop("No .outlier column found in the data. Please run find_outliers() on your data.frame first.")
