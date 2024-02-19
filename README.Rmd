@@ -31,7 +31,13 @@ devtools::install_github("TeroJii/silk")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+The objective of this package is to provide a simple way to correct individual outlier values. The package includes two main functions: `find_outliers()` and `correct_outliers()`, for finding and correcting outliers, respectively.
+
+Let's take a look at these functions in action.
+
+### Detecting outliers in example data
+
+The package contains an example dataset `silk_data1` which we can use to demonstrate the functionality of the package.
 
 ```{r example}
 library(silk)
@@ -39,17 +45,21 @@ library(silk)
 data("silk_data1")
 
 silk_data1 |> 
-  find_outliers("time", group_col = "group") |>
   head()
 
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+The `silk::find_outliers()` functions takes a data.frame and a column name as input, and returns a modified version of the input data.frame, which includes columns for median, MAD and a logical column to indicate outliers.
 
-```{r cars}
-summary(cars)
+
+```{r}
+silk_data1 |> 
+  find_outliers(col = "time", group_col = "group") |>
+  head()
 ```
 
+
+<!--
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
 
 You can also embed plots, for example:
@@ -59,3 +69,4 @@ You can also embed plots, for example:
 ```
 
 In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+-->
