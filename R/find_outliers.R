@@ -14,7 +14,7 @@
 #'
 #' @examples
 #' silk_data1 |>
-#'   find_outliers("time", group_col = "group") |>
+#'   find_outliers("y", group_col = "group") |>
 #'   head()
 find_outliers <- function(x, col, group_col = NULL) {
 
