@@ -48,22 +48,36 @@ silk_data1 |>
 #> 6    6 11.205878 series1
 ```
 
-The `silk::find_outliers()` functions takes a data.frame and a column
-name as input, and returns a modified version of the input data.frame,
-which includes columns for median, MAD and a logical column to indicate
-outliers.
+If we visualize the data, we see that there are a few unusual values in
+the data.
+
+``` r
+library(ggplot2)
+
+silk_data1 |> 
+  ggplot2::ggplot(ggplot2::aes(x = time, y = y, color = group)) +
+  ggplot2::geom_line() +
+  ggplot2::theme_bw() +
+  ggplot2::facet_wrap(~group)
+```
+
+<img src="man/figures/README-visualize-example-data-1.png" width="100%" />
+
+We can detect these unsual data points usign the `silk::find_outliers()`
+function, which takes a data.frame and a column name as input, and
+returns a modified version of the input data.frame.
 
 ``` r
 silk_data1 |> 
-  find_outliers(col = "time", group_col = "group") |>
+  silk::find_outliers(col = "y", group_col = "group") |>
   head()
-#>   time         y   group .median   .mad .outlier
-#> 1    1  8.584244 series1   500.5 370.65    FALSE
-#> 2    2  9.159694 series1   500.5 370.65    FALSE
-#> 3    3  9.717704 series1   500.5 370.65    FALSE
-#> 4    4 10.249923 series1   500.5 370.65    FALSE
-#> 5    5 10.748432 series1   500.5 370.65    FALSE
-#> 6    6 11.205878 series1   500.5 370.65    FALSE
+#>   time         y   group  .median     .mad .outlier
+#> 1    1  8.584244 series1 8.065949 2.713192    FALSE
+#> 2    2  9.159694 series1 8.065949 2.713192    FALSE
+#> 3    3  9.717704 series1 8.065949 2.713192    FALSE
+#> 4    4 10.249923 series1 8.065949 2.713192    FALSE
+#> 5    5 10.748432 series1 8.065949 2.713192    FALSE
+#> 6    6 11.205878 series1 8.065949 2.713192    FALSE
 ```
 
 <!--
