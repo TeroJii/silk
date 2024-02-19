@@ -1,3 +1,6 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+df <- data.frame(x = 1:10, y = "val1")
+
+
+test_that("outlier correction throws an error due to missing .outlier-column", {
+  expect_error(correct_outliers(x = df, col = "x"))
 })
