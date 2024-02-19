@@ -36,7 +36,8 @@ df2 <- data.frame(x = 1:1000) |>
 ## add outliers
 df2[c(251, 648), "y"] <- c(83, 62)
 
-
-silk_data1 <- dplyr::bind_rows(df, df2)
+## combine data
+silk_data1 <- dplyr::bind_rows(df, df2) |>
+  dplyr::rename(time = x)
 
 usethis::use_data(silk_data1, overwrite = TRUE)
