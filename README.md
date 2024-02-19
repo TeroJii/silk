@@ -80,6 +80,9 @@ silk_data1 |>
 #> 6    6 11.205878 series1 8.065949 2.713192    FALSE
 ```
 
+As we can see, the function has added new columns to the data. The
+`.outlier` column indicates whether a value is an outlier or not.
+
 <!--
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
 &#10;You can also embed plots, for example:

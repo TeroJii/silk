@@ -51,7 +51,7 @@ silk_data1 |>
 
 If we visualize the data, we see that there are a few unusual values in the data.
 
-```{r visualize-example-data}
+```{r visualize-example-data, fig.width = 8, fig.height = 4}
 library(ggplot2)
 
 silk_data1 |> 
@@ -70,6 +70,7 @@ silk_data1 |>
   head()
 ```
 
+As we can see, the function has added new columns to the data. The  `.outlier` column indicates whether a value is an outlier or not.
 
 <!--
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
