@@ -24,6 +24,6 @@ value.
 }
 \examples{
 silk_data1 |>
-  find_outliers("time", group_col = "group") |>
+  find_outliers("y", group_col = "group") |>
   head()
 }
