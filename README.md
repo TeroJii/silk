@@ -110,11 +110,10 @@ with the `silk::find_outliers()` function in the following fashion:
 ``` r
 
 silk_data1 |> 
-  silk::find_outliers(col = "y", group_col = "group") |>
-  silk::correct_outliers(col = "y") |>
+  silk::find_outliers(col = "y", group_col = "group") |> 
+  silk::correct_outliers(col = "y") |> 
   ggplot2::ggplot(ggplot2::aes(x = time, y = y)) +
   ggplot2::geom_line() +
-#  ggplot2::geom_point(ggplot2::aes(color = .outlier)) +
   ggplot2::theme_bw() +
   ggplot2::facet_wrap(~group) +
   ggplot2::ggtitle("Corrected data")
@@ -122,9 +121,9 @@ silk_data1 |>
 
 <img src="man/figures/README-correct-outliers-1.png" width="100%" />
 
-``` r
- # ggplot2::theme(legend.position = "top")
-```
+The `silk::correct_outliers()` function overwrites the original column
+values, replacing the outlier values with the mean of the previous and
+following observation in the data.
 
 <!--
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
