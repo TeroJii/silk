@@ -1,3 +1,20 @@
+#' Correcting individual outliers
+#'
+#' Takes the mean of the previous and next value for each outlier observation,
+#' and replaces the outlier value with this mean value. Should be used with the
+#' `find_outliers()` function.
+#'
+#' @param x A data.frame with the data including the .outlier column
+#' @param col The column to correct outliers from
+#'
+#' @return Returns a modified version of the input data.frame
+#' @export
+#'
+#' @examples
+#' silk_data1 |>
+#'   find_outliers("y", group_col = "group") |>
+#'   correct_outliers(col = "y") |>
+#'   head()
 correct_outliers <- function(x, col){
 
   stopifnot(is.data.frame(x))
