@@ -25,6 +25,18 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 library(silk)
 ## basic example code
+data("silk_data1")
+
+silk_data1 |> 
+  find_outliers("time", group_col = "group") |>
+  head()
+#>   time         y   group .median   .mad .outlier
+#> 1    1  8.584244 series1   500.5 370.65    FALSE
+#> 2    2  9.159694 series1   500.5 370.65    FALSE
+#> 3    3  9.717704 series1   500.5 370.65    FALSE
+#> 4    4 10.249923 series1   500.5 370.65    FALSE
+#> 5    5 10.748432 series1   500.5 370.65    FALSE
+#> 6    6 11.205878 series1   500.5 370.65    FALSE
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`?

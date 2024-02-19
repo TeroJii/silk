@@ -36,6 +36,12 @@ This is a basic example which shows you how to solve a common problem:
 ```{r example}
 library(silk)
 ## basic example code
+data("silk_data1")
+
+silk_data1 |> 
+  find_outliers("time", group_col = "group") |>
+  head()
+
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
