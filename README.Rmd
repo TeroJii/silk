@@ -74,6 +74,8 @@ As we can see, the function has added new columns to the data. The  `.outlier` c
 
 ### Visulizing the outliers
 
+We can visualize the outliers using the `ggplot2` package:
+
 ```{r visualize-outliers, fig.width = 6, fig.height = 3}
 
 silk_data1 |> 
@@ -86,6 +88,24 @@ silk_data1 |>
   ggplot2::theme(legend.position = "top")
 ```
 
+### Correcting the outliers
+
+The `{silk}` package also includes a function for correcting the outliers. The `silk::correct_outliers()` function can be used together with the `silk::find_outliers()` function in the following fashion:
+
+```{r correct-outliers, fig.width = 6, fig.height = 3}
+
+silk_data1 |> 
+  silk::find_outliers(col = "y", group_col = "group") |>
+  silk::correct_outliers(col = "y") |>
+  ggplot2::ggplot(ggplot2::aes(x = time, y = y)) +
+  ggplot2::geom_line() +
+#  ggplot2::geom_point(ggplot2::aes(color = .outlier)) +
+  ggplot2::theme_bw() +
+  ggplot2::facet_wrap(~group) +
+  ggplot2::ggtitle("Corrected data")
+ # ggplot2::theme(legend.position = "top")
+
+```
 
 <!--
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
