@@ -10,7 +10,7 @@
 #' @param threshold The threshold value for finding outliers. Outliers are
 #' threshold * MAD away from the median.
 #'
-#' @return A modified version of th input data.frame, which includes columns for
+#' @return A modified version of the input data.frame, which includes columns for
 #' median, MAD and a logical column to indicate outliers.
 #' @export
 #'
@@ -19,8 +19,12 @@
 #'   find_outliers("y", group_col = "group") |>
 #'   head()
 find_outliers <- function(x, col, group_col = NULL, threshold = 10) {
+  UseMethod("find_outliers")
+}
 
-  stopifnot(is.data.frame(x))
+#' @export
+find_outliers.data.frame <- function(x, col, group_col = NULL, threshold = 10) {
+
   stopifnot(is.character(col))
   stopifnot(is.null(group_col) || is.character(group_col))
 
