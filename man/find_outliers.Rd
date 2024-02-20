@@ -23,7 +23,7 @@ median, MAD and a logical column to indicate outliers.
 \description{
 A function for finding outliers in a dataset. Uses Median Absolute Deviation
 (MAD) to detect values which are a certain distance away from the median
-value.
+value. See \code{\link[stats:mad]{stats::mad()}} for more information.
 }
 \examples{
 silk_data1 |>
