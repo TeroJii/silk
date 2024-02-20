@@ -7,6 +7,8 @@
 #' @param x A data.frame with the data
 #' @param col The column to find outliers from
 #' @param group_col The column to group by
+#' @param threshold The threshold value for finding outliers. Outliers are
+#' threshold * MAD away from the median.
 #'
 #' @return A modified version of th input data.frame, which includes columns for
 #' median, MAD and a logical column to indicate outliers.
@@ -16,7 +18,7 @@
 #' silk_data1 |>
 #'   find_outliers("y", group_col = "group") |>
 #'   head()
-find_outliers <- function(x, col, group_col = NULL) {
+find_outliers <- function(x, col, group_col = NULL, threshold = 10) {
 
   stopifnot(is.data.frame(x))
   stopifnot(is.character(col))
@@ -35,7 +37,7 @@ find_outliers <- function(x, col, group_col = NULL) {
     x <- x |>
       dplyr::left_join(medians, by = group_col) |>
       dplyr::mutate(
-        .outlier = abs(.data[[col]] - .median) > .median + 3 * .mad
+        .outlier = abs(.data[[col]] - .median) > .median + threshold * .mad
       )
 
   } else {
