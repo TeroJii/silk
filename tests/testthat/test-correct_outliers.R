@@ -5,6 +5,11 @@ test_that("outlier correction throws an error due to missing .outlier-column", {
   expect_error(correct_outliers(x = df, col = "x"))
 })
 
+test_that("supplying a non-string argument to col throws an error", {
+  expect_error(correct_outliers(x = df, col = 1))
+})
+
+
 test_that("Corrected example data has a smaller mean than raw data with outliers", {
   expect_true(
     object = {
