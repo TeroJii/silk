@@ -4,7 +4,7 @@
 \alias{find_outliers}
 \title{Find outliers in a dataset}
 \usage{
-find_outliers(x, col, group_col = NULL)
+find_outliers(x, col, group_col = NULL, threshold = 10)
 }
 \arguments{
 \item{x}{A data.frame with the data}
@@ -12,6 +12,9 @@ find_outliers(x, col, group_col = NULL)
 \item{col}{The column to find outliers from}
 
 \item{group_col}{The column to group by}
+
+\item{threshold}{The threshold value for finding outliers. Outliers are
+threshold * MAD away from the median.}
 }
 \value{
 A modified version of th input data.frame, which includes columns for
