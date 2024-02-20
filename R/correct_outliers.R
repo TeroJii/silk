@@ -30,11 +30,12 @@ correct_outliers.data.frame <- function(x, col){
   }
 
   x |>
-    dplyr::mutate({{col}} := dplyr::if_else(
-      .outlier,
-      true = (dplyr::lag(.data[[col]]) + dplyr::lead(.data[[col]]))/2,
-      false = .data[[col]]
-    )
+    dplyr::mutate(
+      {{col}} := dplyr::if_else(
+        .outlier,
+        true = (dplyr::lag(.data[[col]]) + dplyr::lead(.data[[col]]))/2,
+        false = .data[[col]]
+      )
     )
 }
 
