@@ -16,8 +16,13 @@
 #'   correct_outliers(col = "y") |>
 #'   head()
 correct_outliers <- function(x, col){
+  UseMethod("correct_outliers")
+}
 
-  stopifnot(is.data.frame(x))
+
+#' @export
+correct_outliers.data.frame <- function(x, col){
+
   stopifnot(is.character(col))
 
   if(!any(names(x) %in% ".outlier")){
