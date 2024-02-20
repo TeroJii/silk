@@ -17,6 +17,8 @@ test_that("returned data.frame contains column .median, .mad and .outlier", {
 })
 
 
+## At the moment a grouping column for the data is needed
+## in the future this could be changed to allow for a non-grouped data
 test_that("Non-implemented feature throws an error", {
   expect_error(find_outliers(x = df, col = "x"))
 })
