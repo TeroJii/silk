@@ -2,7 +2,7 @@
 #'
 #' Takes the mean of the previous and next value for each outlier observation,
 #' and replaces the outlier value with this mean value. Should be used with the
-#' `find_outliers()` function.
+#' [find_outliers()] function.
 #'
 #' @param x A data.frame with the data including the .outlier column
 #' @param col The column to correct outliers from

@@ -17,7 +17,7 @@ Returns a modified version of the input data.frame
 \description{
 Takes the mean of the previous and next value for each outlier observation,
 and replaces the outlier value with this mean value. Should be used with the
-\code{find_outliers()} function.
+\code{\link[=find_outliers]{find_outliers()}} function.
 }
 \examples{
 silk_data1 |>
