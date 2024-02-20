@@ -17,7 +17,7 @@ find_outliers(x, col, group_col = NULL, threshold = 10)
 threshold * MAD away from the median.}
 }
 \value{
-A modified version of th input data.frame, which includes columns for
+A modified version of the input data.frame, which includes columns for
 median, MAD and a logical column to indicate outliers.
 }
 \description{
