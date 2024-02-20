@@ -20,3 +20,15 @@ test_that("returned data.frame contains column .median, .mad and .outlier", {
 test_that("Non-implemented feature throws an error", {
   expect_error(find_outliers(x = df, col = "x"))
 })
+
+test_that("silk_data1 contains 4 outliers", {
+  expect_equal(
+    object = {
+      dat <- silk_data1 |>
+        find_outliers("y", group_col = "group")
+
+      sum(dat$.outlier)
+      },
+    expected = 4
+  )
+})
