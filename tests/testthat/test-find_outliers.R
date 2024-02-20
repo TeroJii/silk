@@ -34,3 +34,8 @@ test_that("silk_data1 contains 4 outliers", {
     expected = 4
   )
 })
+
+
+test_that("Wrong threshold type throws an error", {
+  expect_error(find_outliers(x = df, col = "x", group_col = "y", threshold = "string"))
+})
