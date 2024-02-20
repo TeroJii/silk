@@ -27,6 +27,7 @@ find_outliers.data.frame <- function(x, col, group_col = NULL, threshold = 10) {
 
   stopifnot(is.character(col))
   stopifnot(is.null(group_col) || is.character(group_col))
+  stopifnot(is.numeric(threshold))
 
   # check that group_col is a column in x
   if (!is.null(group_col)) {
