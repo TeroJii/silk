@@ -4,6 +4,8 @@
 # silk <img src="man/figures/logo.png" align="right" height="139" alt="" />
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/TeroJii/silk/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/TeroJii/silk/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of silk is to make curves with outliers smooth as silk.
