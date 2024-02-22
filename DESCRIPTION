@@ -1,6 +1,6 @@
 Package: silk
 Title: Making Curves Smooth as Silk
-Version: 0.0.1
+Version: 0.0.1.9000
 Authors@R: 
     person("Tero", "Jalkanen", , "tero.jalkanen@estimates.fi", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4586-8378"))
