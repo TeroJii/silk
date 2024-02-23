@@ -7,6 +7,8 @@
 
 [![R-CMD-check](https://github.com/TeroJii/silk/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/TeroJii/silk/actions/workflows/R-CMD-check.yaml)
 [![test-coverage](https://github.com/TeroJii/silk/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/TeroJii/silk/actions/workflows/test-coverage.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/TeroJii/silk/branch/main/graph/badge.svg)](https://app.codecov.io/gh/TeroJii/silk?branch=main)
 <!-- badges: end -->
 
 The goal of silk is to make curves with outliers smooth as silk.
