@@ -20,4 +20,4 @@ Imports:
 Depends: 
     R (>= 2.10)
 LazyData: true
-URL: https://terojii.github.io/silk/
+URL: https://terojii.github.io/silk/, https://github.com/TeroJii/silk
