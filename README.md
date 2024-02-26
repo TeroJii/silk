@@ -23,7 +23,7 @@ You can install the development version of silk from
 devtools::install_github("TeroJii/silk")
 ```
 
-## Example
+## Usage
 
 The objective of this package is to provide a simple way to correct
 individual outlier values. The package includes two main functions:
@@ -53,8 +53,7 @@ silk_data1 |>
 #> 6    6 11.205878 series1
 ```
 
-If we visualize the data, we see that there are a few unusual values in
-the data.
+If we visualize the data, we see that there are a few unusual values.
 
 ``` r
 library(ggplot2)
@@ -68,9 +67,9 @@ silk_data1 |>
 
 <img src="man/figures/README-visualize-example-data-1.png" width="100%" />
 
-We can detect these unsual data points usign the `silk::find_outliers()`
-function, which takes a data.frame and a column name as input, and
-returns a modified version of the input data.frame.
+We can detect these unusual data points using the
+`silk::find_outliers()` function, which takes a data.frame and a column
+name as input, and returns a modified version of the input data.frame.
 
 ``` r
 silk_data1 |> 
@@ -88,7 +87,7 @@ silk_data1 |>
 As we can see, the function has added new columns to the data. The
 `.outlier` column indicates whether a value is an outlier or not.
 
-### Visulizing the outliers
+### Visualizing the outliers
 
 We can visualize the outliers using the `ggplot2` package:
 
